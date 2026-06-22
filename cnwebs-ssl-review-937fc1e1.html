@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes">
+    <title>问鼎娱乐 · 稳定服务说明页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f5f8fc;
+            color: #1b2d3b;
+            line-height: 1.6;
+            padding: 20px 16px 40px;
+            min-height: 100vh;
+        }
+
+        .page-wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* ---- 顶部导航 ---- */
+        .top-nav {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            background: #ffffff;
+            padding: 12px 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 12px rgba(10, 60, 80, 0.06);
+            margin-bottom: 32px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            letter-spacing: 0.3px;
+            color: #0b6974;
+        }
+
+        .logo-area::before {
+            content: "✦";
+            font-size: 1.5rem;
+            color: #1c9aa8;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2b4a56;
+            font-size: 0.95rem;
+            padding: 6px 2px;
+            border-bottom: 2px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: #117a8b;
+            border-bottom-color: #26b2c4;
+        }
+
+        .nav-links .highlight-link {
+            background: #dff3f7;
+            padding: 6px 14px;
+            border-radius: 30px;
+            border-bottom: none;
+            color: #116b77;
+            font-weight: 500;
+        }
+
+        /* ---- hero 区 ---- */
+        .hero {
+            background: linear-gradient(145deg, #e3f0f5 0%, #d3e7ee 100%);
+            padding: 40px 28px 44px;
+            border-radius: 28px;
+            margin-bottom: 36px;
+            box-shadow: 0 6px 18px rgba(30, 90, 100, 0.08);
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+            color: #09424d;
+            margin-bottom: 14px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            background: #ffffffaa;
+            padding: 0 8px;
+            border-radius: 6px;
+            color: #0c6f7c;
+        }
+
+        .hero p {
+            max-width: 640px;
+            font-size: 1rem;
+            color: #1d3f4b;
+            margin-bottom: 20px;
+        }
+
+        .hero .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 16px;
+            margin-top: 8px;
+        }
+
+        .hero .tag {
+            background: #ffffffcc;
+            backdrop-filter: blur(2px);
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-size: 0.88rem;
+            color: #175e6a;
+            border: 1px solid #b1d6de;
+        }
+
+        .hero .tag i {
+            font-style: normal;
+            margin-right: 6px;
+            opacity: 0.8;
+        }
+
+        /* ---- 介绍卡片 ---- */
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-bottom: 36px;
+        }
+
+        @media (min-width: 600px) {
+            .intro-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .intro-card {
+            background: white;
+            padding: 24px 22px;
+            border-radius: 24px;
+            box-shadow: 0 4px 12px rgba(0, 40, 50, 0.04);
+            border: 1px solid #e1edf2;
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+
+        .intro-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(10, 80, 90, 0.08);
+        }
+
+        .intro-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #136c79;
+            margin-bottom: 12px;
+        }
+
+        .intro-card h3::before {
+            content: "▹";
+            color: #26b2c4;
+            font-size: 1.4rem;
+        }
+
+        .intro-card p {
+            color: #2b4e5a;
+            font-size: 0.95rem;
+        }
+
+        .intro-card p a {
+            color: #117a8b;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #86cbd6;
+            font-weight: 500;
+        }
+
+        .intro-card p a:hover {
+            color: #0a5b68;
+        }
+
+        /* ---- 三个场景模块（网格卡片） ---- */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 32px 0 18px;
+            color: #09424d;
+            border-left: 5px solid #26b2c4;
+            padding-left: 16px;
+        }
+
+        .scene-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-bottom: 32px;
+        }
+
+        @media (min-width: 500px) {
+            .scene-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 780px) {
+            .scene-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .scene-card {
+            background: white;
+            border-radius: 24px;
+            padding: 26px 20px 22px;
+            border: 1px solid #e3edf2;
+            box-shadow: 0 4px 10px rgba(0, 50, 60, 0.02);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .scene-icon {
+            font-size: 2rem;
+            margin-bottom: 6px;
+            color: #1ea1b1;
+        }
+
+        .scene-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #0b555f;
+            margin: 6px 0 10px;
+        }
+
+        .scene-card p {
+            font-size: 0.92rem;
+            color: #345662;
+            flex: 1;
+        }
+
+        .scene-card .badge {
+            align-self: flex-start;
+            margin-top: 14px;
+            background: #e2f2f6;
+            padding: 4px 14px;
+            border-radius: 40px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #0b6e7b;
+            letter-spacing: 0.4px;
+        }
+
+        /* ---- 常见说明 / FAQ 摘要 ---- */
+        .faq-block {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 28px 24px 20px;
+            margin: 20px 0 28px;
+            border: 1px solid #dcecf1;
+        }
+
+        .faq-block h2 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #09424d;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .faq-block h2::after {
+            content: "❓";
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+
+        .faq-item {
+            padding: 14px 0;
+            border-bottom: 1px solid #e5eff3;
+        }
+
+        .faq-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: #125f6b;
+            margin-bottom: 5px;
+            font-size: 0.98rem;
+        }
+
+        .faq-answer {
+            color: #2f5460;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .faq-answer a {
+            color: #117a8b;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        /* ---- 底部额外提示 ---- */
+        .notice-line {
+            background: #ddf0f5;
+            border-radius: 40px;
+            padding: 14px 22px;
+            font-size: 0.9rem;
+            color: #0b515d;
+            margin: 24px 0 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 8px 16px;
+        }
+
+        .notice-line strong {
+            font-weight: 600;
+        }
+
+        /* ---- 响应式微调 ---- */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .top-nav {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .faq-block {
+                padding: 20px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <div class="logo-area">问鼎娱乐</div>
+        <ul class="nav-links">
+            <li><a href="#intro">说明</a></li>
+            <li><a href="#scenes">场景</a></li>
+            <li><a href="#faq">常见</a></li>
+            <li><a href="https://cnwebs-ssl-wending.com" class="highlight-link">问鼎娱乐</a></li>
+        </ul>
+    </nav>
+
+    <!-- hero 区 -->
+    <div class="hero">
+        <h1><span>稳定入口</span> · 页面引导</h1>
+        <p>这里是一份对 <a href="https://cnwebs-ssl-wending.com" style="color:#0b6974;text-decoration:underline;text-underline-offset:3px;">问鼎娱乐</a> 服务能力的说明整理，涵盖使用场景、常见疑问以及页面访问方式。内容力求清晰平实，方便快速了解。</p>
+        <div class="tag-group">
+            <span class="tag"><i>🛡️</i> 长期维护</span>
+            <span class="tag"><i>📋</i> 轻量导航</span>
+            <span class="tag"><i>🌐</i> 适配移动端</span>
+        </div>
+    </div>
+
+    <!-- 介绍卡片 两栏 -->
+    <div class="intro-grid" id="intro">
+        <div class="intro-card">
+            <h3>服务定位</h3>
+            <p>页面围绕 <a href="https://cnwebs-ssl-wending.com">问鼎娱乐</a> 提供稳定的说明索引，不夸大、不诱导，仅展示客观的功能与入口信息，便于新用户建立认知。</p>
+        </div>
+        <div class="intro-card">
+            <h3>内容结构</h3>
+            <p>采用网格卡片与问答摘要，把常见场景、平台特点、基本说明分层展示。每个部分都可以独立参考，也适合直接分享给有需要的人。</p>
+        </div>
+    </div>
+
+    <!-- 三个场景模块 -->
+    <h2 class="section-title" id="scenes">常见使用场景</h2>
+    <div class="scene-grid">
+        <div class="scene-card">
+            <div class="scene-icon">📱</div>
+            <h4>移动端快速浏览</h4>
+            <p>通过手机或平板直接访问 <a href="https://cnwebs-ssl-wending.com">问鼎娱乐</a>，页面针对小屏幕做了适配，卡片布局清晰，无需额外缩放。</p>
+            <span class="badge">响应式设计</span>
+        </div>
+        <div class="scene-card">
+            <div class="scene-icon">🔗</div>
+            <h4>链接与书签</h4>
+            <p>将本页加入浏览器书签，或把 <a href="https://cnwebs-ssl-wending.com">问鼎娱乐</a> 设为常用入口，方便日后随时回看说明。</p>
+            <span class="badge">稳定索引</span>
+        </div>
+        <div class="scene-card">
+            <div class="scene-icon">🧩</div>
+            <h4>信息查阅与参考</h4>
+            <p>FAQ 摘要覆盖了典型疑问，配合场景卡片，能快速定位自己关心的内容。页面保持轻量化，加载迅速。</p>
+            <span class="badge">轻量导航</span>
+        </div>
+    </div>
+
+    <!-- 常见说明 / FAQ 摘要 -->
+    <div class="faq-block" id="faq">
+        <h2>常见简要说明</h2>
+        <div class="faq-item">
+            <div class="faq-question">这个页面是做什么的？</div>
+            <div class="faq-answer">它是围绕 <a href="https://cnwebs-ssl-wending.com">问鼎娱乐</a> 整理的一份介绍说明页，包含导航、场景卡片和常见疑问摘要，方便快速理解服务结构。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">如何找到问鼎娱乐？</div>
+            <div class="faq-answer">页面上方的导航栏、hero 区域以及多处卡片中均嵌入了 <a href="https://cnwebs-ssl-wending.com">问鼎娱乐</a> 的链接，点击即可前往对应页面。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">内容是否保持更新？</div>
+            <div class="faq-answer">本页作为静态说明，会不定期根据反馈调整结构，但始终指向同一稳定地址，用户可随时回来参照。</div>
+        </div>
+    </div>
+
+    <!-- 额外提示条 -->
+    <div class="notice-line">
+        <strong>💡 提示：</strong> 如果你希望直接开始，可使用上方导航中的「问鼎娱乐」链接，或直接访问 <a href="https://cnwebs-ssl-wending.com" style="color:#0b6974;text-decoration:underline;">问鼎娱乐</a> 。页面所有引用均以说明为目的。
+    </div>
+
+    <!-- 底边点缀（无实质链接） -->
+    <div style="text-align:center;font-size:0.8rem;color:#809ca7;padding:20px 0 8px;border-top:1px solid #dae9ef;">
+        问鼎娱乐 · 稳定说明页
+    </div>
+</div>
+</body>
+</html>
